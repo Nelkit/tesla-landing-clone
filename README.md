@@ -10,7 +10,7 @@ npm run dev
 ```
 
 Preview
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+![basics](https://github.com/Nelkit/tesla-landing-clone/blob/89d06af09da425565f3886c6501798d2c7914318/preview.png)
 
 > 🧑‍🚀 **Preview in Netlify** [go to preview](https://tangerine-sherbet-66d6ba.netlify.app)
 
