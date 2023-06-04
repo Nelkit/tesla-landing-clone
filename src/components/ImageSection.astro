@@ -1,21 +1,39 @@
+---
+const { title, subtitle, src, underline, primaryButtonText, secondaryButtonText, footer, headerColor } = Astro.props;
+---
 
-<section class="bg-black w-screen h-screen text-center overflow-hidden relative">
+<section class="landing-section bg-black w-screen h-screen text-center overflow-hidden relative" data-header-color={headerColor}>
     <div class="z-30 relative h-full flex flex-col">
         <header>
-            <h2 class="text-black pt-40 text-[40px] font-medium">Model 3</h2>
-            <a href="#" class="text-black text-base underline">Lease from $429/mo</a>
+            <h2 class="text-black pt-32 text-[40px] font-medium">{title}</h2>
+            <a href="#" class="text-black text-sm" class:list={[ { underline: underline }]}>{subtitle}</a>
         </header>
 
-        <footer class="flex flex-col flex-grow justify-end pb-20" >
+        <footer class="flex flex-col flex-grow justify-end pb-20 items-center" >
             <div>
-                <a href="#" class="text-white text-sm bg-black/80 backdrop-blur-sm rounded px-24 py-2 inline-block">Order Now</a>
-                <a href="#" class="text-black text-sm bg-white/80 backdrop-blur-sm rounded px-24 py-2 inline-block">Demo Drive</a>
+                <a href="#" class:list={[ { hidden: !primaryButtonText }]} class="text-white text-sm bg-black/80 backdrop-blur-sm rounded px-24 py-2 inline-block mx-3">
+                    {primaryButtonText}
+                </a>
+                <a href="#" class:list={[ { hidden: !secondaryButtonText }]} class="text-black text-sm bg-white/80 backdrop-blur-sm rounded px-24 py-2 inline-block mx-3 top-2">
+                    {secondaryButtonText}
+                </a>
+            </div>
+            <div class="pb-8 flex absolute z-40 bottom-0" class:list={[ { hidden: !footer }]}>
+                <ul class="flex [&>li>a]:text-black [&>li>a]:text-xs [&>li>a]:inline-block [&>li>a]:px-2">
+                    <li><a href="#">Tesla © 2023</a></li>
+                    <li><a href="#">Privacy & Legal</a></li>
+                    <li><a href="#">Vehicle Recalls</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Get Updates</a></li>
+                    <li><a href="#">Locations</a></li>
+                </ul>
             </div>
         </footer>
     </div>
 
 
     <div class="absolute top-0 bottom-0 h-full w-full z-10">
-        <img class="object-center object-cover h-full w-full" src="/img/model3.avif" alt="Model 3">
+        <img class="object-center object-cover h-full w-full" src={src} alt={title}>
     </div>
 </section>
